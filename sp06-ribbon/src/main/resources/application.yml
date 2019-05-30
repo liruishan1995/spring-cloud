@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: ribbon
+    
+server:
+  port: 3001
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
+      
+ribbon:
+      #向下一台集群服务器重试的次数
+  MaxAutoRetriesNextServer: 2
+      #单台服务器的重试次数
+  MaxAutoRetries: 1
+      #全部操作都进行重试
+  OkToRetryOnAllOperations: true
