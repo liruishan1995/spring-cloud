@@ -1,15 +1,21 @@
 spring:
   application:
     name: config-server
+  profiles:
+    active: native
+   
   
   cloud:
     config:
       server:
-        git:
-          uri: https://github.com/liruishan1995/sp-config
-          searchPaths: config
-          #username: your-username
-          #password: your-password
+        native:
+          search-locations: classpath:/config
+          
+#        git:
+#          uri: https://github.com/liruishan1995/sp-config
+#          searchPaths: config
+#          #username: your-username
+#          #password: your-password
     
 server:
   port: 6001
