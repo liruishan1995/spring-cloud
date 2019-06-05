@@ -3,7 +3,11 @@ spring:
     name: config-server
   profiles:
     active: native
-   
+  rabbitmq:
+    host: 192.168.118.140
+    port: 5672
+    username: admin
+    password: admin 
   
   cloud:
     config:
@@ -16,6 +20,8 @@ spring:
 #          searchPaths: config
 #          #username: your-username
 #          #password: your-password
+
+
     
 server:
   port: 6001
@@ -24,3 +30,9 @@ eureka:
   client:
     service-url:
       defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

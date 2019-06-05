@@ -1,6 +1,15 @@
 spring:
   application:
     name: item-service
+  rabbitmq:
+    host: 192.168.118.140
+    port: 5672
+    username: admin
+    password: admin
+    
+  sleuth:
+    sampler:
+      probability: 1
     
 #server:
 #  port: 8001

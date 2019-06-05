@@ -1,10 +1,19 @@
 sp:
   user-service:
-    users: "[{\"id\":7, \"username\":\"abc\",\"password\":\"123\"},{\"id\":8, \"username\":\"def\",\"password\":\"456\"},{\"id\":9, \"username\":\"ghi\",\"password\":\"789\"}]"
+    users: "[{\"id\":7, \"username\":\"abc\",\"password\":\"123\"},{\"id\":8, \"username\":\"def\",\"password\":\"456\"},{\"id\":9, \"username\":\"ghi\",\"password\":\"789\"},{\"id\":99, \"username\":\"aaa\",\"password\":\"111\"}]"
 
 spring:
   application:
     name: user-service
+  rabbitmq:
+    host: 192.168.118.140
+    port: 5672
+    username: admin
+    password: admin
+  
+  sleuth:
+    sampler:
+      probability: 1
     
 server:
   port: 8101
@@ -13,3 +22,10 @@ eureka:
   client:
     service-url:
       defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
+
+#暴露 refresh 端点      
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
